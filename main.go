@@ -2,12 +2,16 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 	"net/http"
 	"time"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
+
+const portNumber = ":3000"
 
 func main() {
 	r := chi.NewRouter()
@@ -18,7 +22,9 @@ func main() {
 		w.Write(buildMessage())
 	})
 
-	http.ListenAndServe(":3000", r)
+	fmt.Printf("Starting application on port %s\n", portNumber)
+
+	log.Fatal(http.ListenAndServe(portNumber, r))
 }
 
 type JSONPayload struct {
