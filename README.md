@@ -14,4 +14,4 @@ Run application:
 go run main.go
 ```
 
-Then see it in action at [http://localhost:3000/liatrio](http://localhost:3000/liatrio).
+Then see it in action at [http://localhost:8080/liatrio](http://localhost:8080/liatrio).
