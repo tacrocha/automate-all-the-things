@@ -1,6 +1,9 @@
 name: Build Go App
 
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - "go/*"
 
 jobs:
 
