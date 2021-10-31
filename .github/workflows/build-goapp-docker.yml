@@ -2,11 +2,7 @@ name: Build Go App Docker Image
 
 on: 
   push:
-    # paths:
-    #   - "go/*"
   pull_request:
-    # paths:
-    #   - "go/*"
 
 jobs:
 
