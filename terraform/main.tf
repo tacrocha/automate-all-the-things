@@ -121,7 +121,7 @@ resource "kubernetes_deployment" "automate-all-the-things" {
   metadata {
     name = "automate-all-the-things"
     labels = {
-      "test" = "MyExampleApp"
+      "app.kubernetes.io/name" =  "automate-all-the-things"
     }
   }
 
@@ -130,20 +130,20 @@ resource "kubernetes_deployment" "automate-all-the-things" {
 
     selector {
       match_labels = {
-        "test" = "MyExampleApp"
+        "app.kubernetes.io/name" =  "automate-all-the-things"
       }
     }
 
     template {
       metadata {
         labels = {
-          "test" = "MyExampleApp"
+          "app.kubernetes.io/name" =  "automate-all-the-things"
         }
       }
     
       spec {
         container {
-          image = "docker.io/tacrocha/automate-all-the-things:1.0"
+          image = "docker.io/tacrocha/automate-all-the-things:latest"
           name = "goapp"
         
           resources {
@@ -168,7 +168,7 @@ resource "kubernetes_service" "automate-all-the-things" {
   }
   spec {
     selector = {
-      "test" = "MyExampleApp"
+      "app.kubernetes.io/name" =  "automate-all-the-things"
     }
     port {
       port = 80
