@@ -37,6 +37,3 @@ jobs:
             tacrocha/automate-all-the-things:latest 
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
