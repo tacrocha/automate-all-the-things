@@ -1,6 +1,6 @@
 # automate-all-the-things
 
-Automate All The Things is a Go application that exposes a REST endpoint a JSON with a message and the current timestamp:
+Automate All The Things is a Go application that exposes a REST endpoint that returns a JSON with a message and the current timestamp:
 
 ```json
 {
@@ -14,4 +14,4 @@ Run application:
 go run main.go
 ```
 
-Then see it in action at [http://localhost:8080/liatrio](http://localhost:8080/liatrio).
+Then see it in action at [http://localhost:8080](http://localhost:8080).

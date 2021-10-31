@@ -16,8 +16,8 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
-	// The /liatrio endpoint returns a JSON with a message and a timestamp
-	r.Get("/liatrio", func(w http.ResponseWriter, r *http.Request) {
+	// The / endpoint returns a JSON with a message and a timestamp
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write(buildMessage())
 	})
 
