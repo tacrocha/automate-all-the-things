@@ -15,6 +15,6 @@
 # vendor/
 
 terraform/.terraform/
-terraform/.terraform.lock.hcl
+terraform/.terraform.*
 terraform/terraform.tfstate*
 terraform/kubeconfig_*
