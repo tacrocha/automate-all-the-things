@@ -177,3 +177,16 @@ resource "kubernetes_service" "automate-all-the-things" {
     type = "LoadBalancer"
   }
 }
+
+locals {
+  lb_hostname = kubernetes_service.automate-all-the-things.status.0.load_balancer.0.ingress.0.hostname
+}
+
+resource "null_resource" "test-app" {
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+  provisioner "local-exec" {
+    command = "curl -s ${local.lb_hostname}"
+  }
+}
