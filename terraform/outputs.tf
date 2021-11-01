@@ -22,3 +22,8 @@ output "region" {
   description = "AWS region"
   value       = var.region
 }
+
+output "lb_hostname" {
+  description = "The hostname of the load balancer exposing the application"
+  value = local.lb_hostname
+}
