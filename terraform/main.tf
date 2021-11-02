@@ -67,7 +67,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.10.0"
 
-  name = "test-vpc"
+  name = "tacio-vpc"
   cidr = "10.0.0.0/16"
   azs = data.aws_availability_zones.available.names
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
@@ -177,3 +177,19 @@ resource "kubernetes_service" "automate-all-the-things" {
     type = "LoadBalancer"
   }
 }
+
+locals {
+  lb_hostname = kubernetes_service.automate-all-the-things.status.0.load_balancer.0.ingress.0.hostname
+}
+
+# resource "null_resource" "test-app" {
+#   triggers = {
+#     always_run = "${timestamp()}"
+#   }
+#   provisioner "local-exec" {
+#     command = "curl -s ${local.lb_hostname}"
+#   }
+#   depends_on = [
+#     kubernetes_service.automate-all-the-things,
+#   ]
+# }
