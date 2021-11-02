@@ -81,6 +81,6 @@ docker run -it --rm \
 ## TODO, shortcomings and notes
 1) The automated test at the end of the terraform deployment did not work using the `null_resource` with a curl command. It would run before the Kubernetes LoadBalancer service was created and fail. **UPDATE:** Used `terraform output -raw` to pass the application URL to curl inside the `deploy.sh` script.
 1) I had planned to use more the kanban board of my Github repo, but ended up not using it that much.
-1) The commands would be simpler if there was a script that took `deploy|destroy` as parameter and also verified if the user had the `~/.aws` folder of if the AWS credentials were set by environment variables, generating the docker run command accordingly.
+1) The commands would be simpler if there was a script that took `deploy|destroy` as parameter and also verified if the user had the `~/.aws` folder and if the AWS credentials were set by environment variables, generating the docker run command accordingly.
 1) The project assumes Linux or MacOS, no Windows.
 1) The VPC resource deserved more attention in order to include only the necessary subnets for a minimal EKS, but I left what I found in my references and was working, and went on to tackle the other requirements.
